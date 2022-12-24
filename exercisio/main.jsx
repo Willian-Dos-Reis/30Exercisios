@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import Calculadora from './Calculadora/index.jsx'
+import App from './app.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Calculadora></Calculadora>
+    <App></App>
   </React.StrictMode>,
 )
