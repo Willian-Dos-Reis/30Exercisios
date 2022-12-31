@@ -27,6 +27,10 @@ button{
     margin-bottom: 0.5em;
     cursor: pointer;
 }
+button:active{
+    background-color: aqua;
+    
+}
 
 .zero{
     width: 7em;

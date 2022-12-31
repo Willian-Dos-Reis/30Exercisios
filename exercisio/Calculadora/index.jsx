@@ -10,7 +10,7 @@ function Calculadora() {
       var input = e.target.value
       if(num==0){ //se num for igual a zero
         setNum(input) //substitua o v atual para a var input
-      }else{ //se nao some o antigo com o atual
+      }else{ //se nao for igual a zero junta o antigo com o novo
         setNum(num + input)
       }
     }
