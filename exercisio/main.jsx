@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Calculadora from './Calculadora/index.jsx'
+//import Calculadora from './Calculadora/index.jsx'
+import ListaTarefas from './Lista-Tarefas/index.jsx'
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Calculadora></Calculadora>
+
+    <ListaTarefas></ListaTarefas>
   </React.StrictMode>,
 )
