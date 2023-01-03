@@ -2,21 +2,30 @@ import { useState } from 'react';
 import  './style.css'
 
 function ListaTarefas(){
-
+ 
+    function console(){
+        cosnt [text,setText] = useState('')
+        setText(e.target.value)
+         
+    }
 
 
 return (
-    <div>
+    <div className='bloco' >
         <h1>to do list</h1>
 
-        <div>
-            <input type="text" placeholder='Escreva sua tarefa' />
-            <button type='submit'> incluir </button>
+        <div className='input' >
+            <input type="text" placeholder='Escreva sua tarefa'
+            value={text}
+            onChange={(e)=>console(e)}
+            />
+            <button variant='text'> incluir </button>
         </div>
 
         <div className='test'>
             <h3>Teste</h3>
             <button>delete</button>
+            {text}
           
             
         </div>

@@ -1,8 +1,19 @@
-div{
+.bloco{
     display: flex;
     flex-direction: column;
     text-align: center;
     border: 1px solid black;
+}
+
+.input{
+    display: flex;
+    margin: 0 auto;
+}
+
+.input input{
+    height: 3em;
+    width: 30em;
+    
 }
 
 .test{
