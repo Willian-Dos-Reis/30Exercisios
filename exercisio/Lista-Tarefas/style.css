@@ -1,31 +1,118 @@
-.bloco{
+.app{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.todo{
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    border: 1px solid black;
+    padding: 2rem;
+    width: 400px;
+    background-color: rgb(161, 161, 161);
 }
 
-.input{
+header{
     display: flex;
-    margin: 0 auto;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid rgb(230, 230, 230) ;
+    padding-bottom: 2rem;
 }
 
-.input input{
-    height: 3em;
-    width: 30em;
+header button {
+    background-color: #FB6c6F;
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+header button:hover{
+    filter: brightness(0.90); /*deixa a cor so q mais escura*/
+    transition: 0.4s;
+}
+
+header button svg{
+    font-size:1.6rem;
+    color: #fff;
     
 }
 
-.test{
-    text-align: left;
-    margin: 2em;
+header input{
+    padding: 1rem 2rem;
+    background-color: rgb(244,243,243);
+    width: 300px;
+    border-radius: 5px;
+    border: none;
+
+    font-family: Ralewy;
+    font-size: 1.2rem;
+}
+
+.task-container{
+    margin-top: 1rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    border: 1px solid black;
 }
 
-.test button {
-    text-align: left;
+.checkbox-and-title{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container{
+    position: relative;
+    padding-left:35px;
+    margin-bottom:24px;
+    cursor: pointer;
+}
+
+.checkbox-container input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+}
+
+.checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius:5px ;
+}
+
+.checkbox-container input:checked ~ .checkmark{
+    background-color: #FB6C6F;
 }
 
 
+/*criando o efeito de check na box*/
+.checkmark::after{
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after{
+    display: block;
+}
+
+.checkbox-container .checkmark:after{
+    left: 8px; 
+    top: 3.5px;
+    height: 10px;
+    width: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    
+}

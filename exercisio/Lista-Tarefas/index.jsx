@@ -1,36 +1,43 @@
 import { useState } from 'react';
 import  './style.css'
+import {IoMdAdd, IoMdAlert} from 'react-icons/io'
+
 
 function ListaTarefas(){
-
-    const [nome,setNome] = useState("")
-
-    function carregar(e){
-        setNome(e.target.value)
-    }
-
-
 return (
-    <div className='bloco' >
-        <h1>to do list</h1>
+    <div className='app' >
+       
+       <div className='todo'>
 
-        <div className='input' >
-            <input type="text"placeholder='Escreva sua tarefa'
-            value={nome}
-           onChange={carregar}
-            />
-            <button onClick={(e)=>carregar(e)} > incluir </button>
-        </div>
+          <header>
+            <input type="text"/>
+            <button><IoMdAdd></IoMdAdd></button>
+          </header>
 
-        <div className='test'>
-            <h3>Teste {nome}</h3>
-            <button>delete</button>
+            <div className='task-container' >
 
+                <div className='checkbox-and-title'>
+
+                    <label className='checkbox-container' >
+                        <input type="checkbox"/>
+                        <span className='checkmark'></span>
+                    </label>
+                    <p>criar videos</p>
+                </div>
+
+                <div>
+                    <IoMdAlert></IoMdAlert>
+                </div>
+
+                
+            <div>
             
-          
-            
-        </div>
+            </div>
 
+            </div>
+
+
+       </div>
         
     </div>
 )
