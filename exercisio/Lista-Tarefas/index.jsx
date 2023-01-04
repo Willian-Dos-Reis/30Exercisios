@@ -2,11 +2,11 @@ import { useState } from 'react';
 import  './style.css'
 
 function ListaTarefas(){
- 
-    function console(){
-        cosnt [text,setText] = useState('')
-        setText(e.target.value)
-         
+
+    const [nome,setNome] = useState("")
+
+    function carregar(e){
+        setNome(e.target.value)
     }
 
 
@@ -15,17 +15,18 @@ return (
         <h1>to do list</h1>
 
         <div className='input' >
-            <input type="text" placeholder='Escreva sua tarefa'
-            value={text}
-            onChange={(e)=>console(e)}
+            <input type="text"placeholder='Escreva sua tarefa'
+            value={nome}
+           onChange={carregar}
             />
-            <button variant='text'> incluir </button>
+            <button onClick={(e)=>carregar(e)} > incluir </button>
         </div>
 
         <div className='test'>
-            <h3>Teste</h3>
+            <h3>Teste {nome}</h3>
             <button>delete</button>
-            {text}
+
+            
           
             
         </div>
