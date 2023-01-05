@@ -11,7 +11,7 @@ function ListaTarefas(){
     const [task,setTask] = useState('')
 
     //para armazenar todas taks criadas no input em um array//
-    const [taks,setTasks] = useState([])
+    const [tasks,setTasks] = useState([])
 
     function HanderCreateTask(){
         if(task === ''){
@@ -30,7 +30,7 @@ function ListaTarefas(){
             isComplete:false} //estado da checkbox
 
             //ele pega a antiga taks e adiciona embaixa a nova
-            setTasks([...taks, newTask])
+            setTasks([...tasks, newTask])
 
             //vai resetar o input
             setTask('')
@@ -39,14 +39,25 @@ function ListaTarefas(){
     }
  
     //mudando a cor
-    const [complet,setComplet] = useState(true)
-    function tradeCor(){
-        setComplet(!complet)
-    }
+    
+    const handleToggleTaskCompletion = (id) => {
+
+		const taskComplete = tasks.map(task => {
+			if (task.id === id) {
+				return { ...task, isComplete: !task.isComplete }
+			}
+
+			return task
+		})
+
+		setTasks(taskComplete)
+	}
+
+    
 
     //apagar
     function Delete(id){
-        setTasks(taks.filter(remove => remove.id !== id))
+        setTasks(tasks.filter(remove => remove.id !== id))
     }
 
     
@@ -68,20 +79,20 @@ return (
 
 
         
-          {taks.map (task =>(
+          {tasks.map (task =>(
              <div key={task.id} className='task-container' >
 
-                <div className={complet? 'checkbox-and-title' :'checkbox-and-titleComplet'}>
-
+                <div className={task.isComplete?'checkbox-and-titleComplet'  :'checkbox-and-title'}>
+                
                     <label className='checkbox-container' >
-                        <input type="checkbox" onClick={tradeCor} />
+                        <input type="checkbox" onClick={()=>handleToggleTaskCompletion(task.id)} />
                         <span className='checkmark'></span>
                     </label>
                     <p>{task.title}</p>
                 </div>
 
                 <div>
-                    <IoMdClose onClick={()=>Delete(task.id)} ></IoMdClose>
+                    <IoMdClose onClick={() =>Delete(task.id)}  ></IoMdClose>
                 </div>
 
                 
