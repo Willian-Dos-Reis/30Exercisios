@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import  './style.css'
 import {IoMdAdd, IoMdAlert, IoMdClose} from 'react-icons/io'
-import { ToastContainer,toast} from 'react-toastify';
-import 'react-toastify/dist/React-toastify.css'
+
+
+
 
 
 function ListaTarefas(){
@@ -13,19 +14,47 @@ function ListaTarefas(){
     const [taks,setTasks] = useState([])
 
     function HanderCreateTask(){
-        if(taks === ''){
+        if(task === ''){
             //erro
+            alert('Digitr alguma taks')
         }else{
             //adiciona
+
+            //gerando um id aleatorio
+            const idRandom = (num)=> Math.floor(Math.random()*num)
+
+            //cada taks vai ter id,texto, e se ta completa
+            const newTask = {
+            id: idRandom(12300), //const gerador
+            title:task, //oq vai ta escrito no input
+            isComplete:false} //estado da checkbox
+
+            //ele pega a antiga taks e adiciona embaixa a nova
+            setTasks([...taks, newTask])
+
+            //vai resetar o input
+            setTask('')
         }
 
     }
  
+    //mudando a cor
+    const [complet,setComplet] = useState(true)
+    function tradeCor(){
+        setComplet(!complet)
+    }
+
+    //apagar
+    function Delete(id){
+        setTasks(taks.filter(remove => remove.id !== id))
+    }
+
+    
 
 
 return (
     <div className='app' >
-        <ToastContainer></ToastContainer>
+    
        
        <div className='todo'>
 
@@ -37,19 +66,22 @@ return (
             <button onClick={HanderCreateTask} ><IoMdAdd></IoMdAdd></button>
           </header>
 
-            <div className='task-container' >
 
-                <div className='checkbox-and-title'>
+        
+          {taks.map (task =>(
+             <div key={task.id} className='task-container' >
+
+                <div className={complet? 'checkbox-and-title' :'checkbox-and-titleComplet'}>
 
                     <label className='checkbox-container' >
-                        <input type="checkbox"/>
+                        <input type="checkbox" onClick={tradeCor} />
                         <span className='checkmark'></span>
                     </label>
-                    <p>criar videos</p>
+                    <p>{task.title}</p>
                 </div>
 
                 <div>
-                    <IoMdClose></IoMdClose>
+                    <IoMdClose onClick={()=>Delete(task.id)} ></IoMdClose>
                 </div>
 
                 
@@ -58,6 +90,9 @@ return (
             </div>
 
             </div>
+          ))}
+
+           
 
 
        </div>
