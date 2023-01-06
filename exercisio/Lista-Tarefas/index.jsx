@@ -33,6 +33,7 @@ function ListaTarefas(){
 
             //vai resetar o input
             setTask('')
+            console.log(setTasks)
         }
 
     }
