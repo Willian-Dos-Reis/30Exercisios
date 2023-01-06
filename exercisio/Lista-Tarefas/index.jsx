@@ -18,8 +18,7 @@ function ListaTarefas(){
             //erro
             alert('Digitr alguma taks')
         }else{
-            //adiciona
-
+            
             //gerando um id aleatorio
             const idRandom = (num)=> Math.floor(Math.random()*num)
 
