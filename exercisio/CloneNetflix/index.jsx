@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './style.css'
+import Row from './Componentes/Row'
 
 function CloneNetflix() {
     
@@ -7,10 +8,12 @@ function CloneNetflix() {
 
   return (
     <div >
+     
       {/*nav-bar*/}
       {/*destaque*/}
       {/*em alta*/}
-      {/*Categoria*/}
+      
+      <Row></Row>  {/*Categoria*/}
     </div>
     
   )
