@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../test/style.sass'
+import '../style/main.sass'
 
 export default function index() {
 
